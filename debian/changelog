@@ -1,0 +1,5 @@
+supervisor-openrc (0.0.1)  nitrux; urgency=medium
+
+  * Create package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 13 Jul 2024 02:10:00 -0500
