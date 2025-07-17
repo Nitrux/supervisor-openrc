@@ -1,0 +1,22 @@
+#!/sbin/openrc-run
+# Copyright (c) 2007-2021 The Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+description="Starts the supervisord process control system"
+
+# Configuration is sourced automatically from the companion conf.d file.
+# /etc/conf.d/supervisord
+
+command="/usr/bin/supervisord"
+command_args="-c /etc/supervisor/supervisord.conf ${supervisord_opts}"
+pidfile="/run/supervisord.pid"
+
+# This tells OpenRC to start the daemon in the background
+# and that OpenRC should create the PID file for it.
+command_background="yes"
+
+depend() {
+	# supervisord often manages network services, so it needs the network.
+	need net
+	after localmount
+}
